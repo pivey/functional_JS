@@ -1,0 +1,8 @@
+{
+  "extends": ["wesbos"],
+  "rules": {
+    "no-array-constructor": 0,
+    "guard-for-in": 0,
+    "no-restricted-syntax": 0
+  }
+}

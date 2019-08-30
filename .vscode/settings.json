@@ -1,0 +1,50 @@
+{
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Fira code, Consolas, monospace",
+  "editor.formatOnSave": true,
+  // turn it off for JS and JSX, we will do this via eslint
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  // tell the ESLint plugin to run on save
+  "eslint.autoFixOnSave": true,
+  // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
+  "prettier.disableLanguages": ["javascript", "javascriptreact"],
+
+  "better-comments.highlightPlainText": true,
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#EF959D",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "todo",
+      "color": "DarkOrange ",
+      "strikethrough": false,
+      "backgroundColor": "transparent "
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    }
+  ]
+}
