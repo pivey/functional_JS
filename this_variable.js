@@ -87,3 +87,7 @@ const showings = {
 };
 
 showings.filmTimes();
+
+// ? functions that contain the thisArg variable
+// * Array.from, Array.every, Array.filter, Array.find, Array.findIndex,
+// * Array.forEach, Array.map, Array.some
