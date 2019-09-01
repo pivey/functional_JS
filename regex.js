@@ -1,21 +1,20 @@
-// // ? input validation using test
-// const str = '123456789';
-// if (/^\d{9}$/.test(str)) console.log('1 -> 9, you got it');
+// ? input validation using test
+const str = '123456789';
+if (/^\d{9}$/.test(str)) console.log('1 -> 9, you got it');
 
-// // ? phone number matching
-// const phone1 = '+33 6 68 56 23 05';
-// const phone2 = '06 68 56 23 05';
+// ? phone number matching
+const phone1 = '+33 6 68 56 23 05';
+const phone2 = '06 68 56 23 05';
 
-// const regex = /^((\+33 \d)|(0\d))( \d{2}){4}$/;
+const regex = /^((\+33 \d)|(0\d))( \d{2}){4}$/;
 
-// if (regex.test(phone1) && regex.test(phone2)) console.log('Call me maybe');
+if (regex.test(phone1) && regex.test(phone2)) console.log('Call me maybe');
 
-// // * uid for logging in
-// const uid = '6-DAVID-6';
-// const regex = /^(\d)-.+-\1$/;
+// * uid for logging in
+const uid = '6-DAVID-6';
+const uidRegex = /^(\d)-.+-\1$/;
 
-// if( regex.test(uid) )
-//   console.log('It is a valid uid');
+if (uidRegex.test(uid)) console.log('It is a valid uid');
 
 // ? ***************    lookaheads JS   ********************
 
