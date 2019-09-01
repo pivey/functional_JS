@@ -83,11 +83,11 @@ console.log(numObj === copied); //! false - new reference
 
 const clone = Object.assign({}, numObj);
 console.log(numObj === clone); //! false - new reference
-//* this can be used to copy object methods while the parse/stringify method cannot do this. 
+//* this can be used to copy object methods while the parse/stringify method cannot do this.
 
 // ? to deep copy an object the same as an array:
 
-const deepClone = JSON.parse(JSON.stringify(numObj));
+const deepCopy = JSON.parse(JSON.stringify(numObj));
 
 // ? ********* Deep copying nested arrays ***********
 
@@ -110,34 +110,88 @@ function deepClone(arr) {
   return output;
 }
 
-// ? ************* range function **********************
-//* count up to or down from a number by a set increment.
+// ? removing duplicates from arrays.
 
-function range(start, end, step = 1) {
-  const allNumbers = [start, end, step].every(Number.isFinite);
+const devTeam = [
+  'harry',
+  'henry',
+  'jenny',
+  'kate',
+  'james',
+  'james',
+  'janice',
+  'kurt',
+  'will',
+  'will',
+];
 
-  if (!allNumbers) {
-    // if not finite numbers
-    throw new TypeError('range() expects only finite numbers as arguments.');
-  }
+// * 1. make a unique set.
 
-  if (step <= 0) {
-    throw new Error('step must be a number greater than 0.');
-  }
+const devSet = [...new Set(devTeam)];
+// [ 'harry','henry','jenny','kate','janice','kurt','will']
 
-  // if the start point is greater than the end point modify the step for decrementing instead of incrementing.
-  if (start > end) {
-    step = -step;
-  }
+// * 2. using array.filter.
 
-  // Determine the length of the array to be returned.
-  // The length is incremented by 1 after Math.floor().
-  // This ensures that the end number is listed if it falls within the range.
-  const length = Math.floor(Math.abs((end - start) / step)) + 1;
+const devTeamFilter = devTeam.filter((x, i) => devTeam.indexOf(x) === i);
+const uniqueArray = devTeam.filter((e, index, dev) => dev.indexOf(e) === index);
+// ! you can also pass in the array as a parameter like above
+// [ 'harry','henry','jenny','kate','janice','kurt','will']
 
-  // using Array.from() with a mapping function.
-  // Finally, return the new array.
-  return Array.from(Array(length), (x, index) => start + index * step);
+// * 3. using forEach
+
+function clearDuplicates(names) {
+  const unique = {};
+  names.forEach(function(i) {
+    if (!unique[i]) {
+      unique[i] = true;
+    }
+  });
+  return Object.keys(unique);
 }
 
-// console.log(range(1, 20, 1));
+// ? manipulate endpoint data.
+
+const data = [
+  {
+    mood: 'happy',
+    fish: 'robin',
+    colours: ['blue', 'green'],
+  },
+  {
+    mood: 'tired',
+    fish: 'panther',
+    colours: ['green', 'black', 'orange', 'blue'],
+  },
+  {
+    mood: 'sad',
+    fish: 'goldfish',
+    colours: ['green', 'red'],
+  },
+];
+
+const colours = data.map(x => x.colours);
+
+const merge = colours.reduce((a, b) => a.concat(b));
+
+// // ? using a reduce pipeline of functions
+
+// function getColoursFromArray(array){
+//   return array.map( e =>{
+//     return typeof e.colours !== ‘undefined’ && e.colours
+//   })
+//  }
+//  function flattenArray(array){
+//   return array.reduce((total, next)=>{
+//     return total.concat(next)
+//   },[])
+//  }
+//  function getUniqueItems(array){
+//   return array.filter((e, i, self)=>{
+//     return self.indexOf(e) === i
+//   });
+//  }
+//  var pipeline = [getColoursFromArray, flattenArray, getUniqueItems]
+//  var result = pipeline.reduce( (total, func)=>{
+//   return func(total)
+//  },data)
+//  console.log(result)

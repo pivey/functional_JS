@@ -71,3 +71,22 @@ for (let i = 0; i < family.members.length; i += 1) {
     }
   }
 }
+
+// ? generic forEach using the curr value and index from the forEach method
+
+function outputValues(currentValue, index) {
+  console.log(`Array Current Index is: ${index} :: Value is: ${currentValue}`);
+}
+
+const names = ['jerry', 'tom', 'pluto', 'micky', 'mini'];
+names.forEach(outputValues);
+
+// ? Do while loop
+//* the condition to be checked occurs at the end of the loop so even if false
+//* the loop will still run once
+let i = 2;
+
+do {
+  console.log('Hello');
+  i += 1;
+} while (i < 1);
