@@ -12,3 +12,5 @@ function outer() {
   inner();
   console.log(y); // undefined
 }
+
+console.log(outer);

@@ -125,6 +125,8 @@ const devTeam = [
   'will',
 ];
 
+const interns = ['joe', 'katy', 'megan', 'harry', 'will'];
+
 // * 1. make a unique set.
 
 const devSet = [...new Set(devTeam)];
@@ -136,6 +138,23 @@ const devTeamFilter = devTeam.filter((x, i) => devTeam.indexOf(x) === i);
 const uniqueArray = devTeam.filter((e, index, dev) => dev.indexOf(e) === index);
 // ! you can also pass in the array as a parameter like above
 // [ 'harry','henry','jenny','kate','janice','kurt','will']
+
+// * check one array against another
+
+const teamCheck = interns.filter(x => !devTeam.includes(x));
+// [ 'joe', 'katy', 'megan' ]
+
+// * remove array item function
+// ! the function will splice the element from the array if it exists withing the array.
+
+function removeSplice(array, element) {
+  const index = array.indexOf(element);
+  index !== -1 ? array.splice(index, 1) : null;
+}
+
+function removeFilter(array, element) {
+  return array.filter(el => el !== element);
+}
 
 // * 3. using forEach
 
@@ -172,26 +191,3 @@ const data = [
 const colours = data.map(x => x.colours);
 
 const merge = colours.reduce((a, b) => a.concat(b));
-
-// // ? using a reduce pipeline of functions
-
-// function getColoursFromArray(array){
-//   return array.map( e =>{
-//     return typeof e.colours !== ‘undefined’ && e.colours
-//   })
-//  }
-//  function flattenArray(array){
-//   return array.reduce((total, next)=>{
-//     return total.concat(next)
-//   },[])
-//  }
-//  function getUniqueItems(array){
-//   return array.filter((e, i, self)=>{
-//     return self.indexOf(e) === i
-//   });
-//  }
-//  var pipeline = [getColoursFromArray, flattenArray, getUniqueItems]
-//  var result = pipeline.reduce( (total, func)=>{
-//   return func(total)
-//  },data)
-//  console.log(result)
