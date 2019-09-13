@@ -38,7 +38,7 @@ greet(); // Hello, visitor!
 
 // ? Short curcuiting
 
-let person = {
+const person = {
   name: 'Jack',
   age: 34,
 };
@@ -47,14 +47,34 @@ console.log(person.job || 'unemployed');
 
 // * takes 'unemployed' as person.job === undefined as it doesn't exist. 'undefined' is falsy 'unemployed' is returned
 
-var a; // undefined (falsy value)
-var b = null; // null (falsy value)
-var c = undefined; undefined (falsy value)
-var d = 4; // number (NOT falsy)
-var e = 'five'; // assigment short circuits before reaching here
+let a; // undefined (falsy value)
+const b = null; // null (falsy value)
+let c; // undefined (falsy value)
+const d = 4; // number (NOT falsy)
+const e = 'five'; // assigment short circuits before reaching here
 
-var f = a || b || c || d || e; // * 'f' = 4 because it is the first truthy value in the list
+const f = a || b || c || d || e; // * 'f' = 4 because it is the first truthy value in the list
 
+// ? Short Curcuiting in JS
 
+//* a shorthand way of using conditionals, some you can also save to consts
+//* which is not possible with a traditional if statement.
 
+// ? using the '&&' shortcurcuiting technique
 
+const dog = true;
+const sound = () => console.log(sound);
+
+const result = dog && sound('woof');
+
+console.log('woof', result);
+
+// ? using the '||' shortcurcuiting technique
+
+const cat = false;
+const pig = false;
+const tiger = true;
+
+const output = cat || pig || tiger || null;
+
+console.log(output);
